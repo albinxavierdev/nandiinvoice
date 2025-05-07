@@ -742,67 +742,73 @@ tfoot tr td {
 
 /* Print styling for multi-page invoices */
 @media print {
-  /* Existing print styles */
-  .no-print {
-    display: none !important;
+  @page {
+    size: A4;
+    margin: 0;
   }
-  
-  input, textarea {
-    border: none !important;
-    background: transparent !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    background: white !important;
   }
-  
-  /* Add this for multi-page support */
+
   .invoice-container {
+    width: 210mm;
+    min-height: 297mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .invoice-header, .customer-section, .invoice-items, .invoice-summary-block, .thank-you-message, .note-section, .payment-options {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .invoice-header, .customer-section {
+    min-height: unset !important;
+    max-height: unset !important;
+  }
+
+  .invoice-items {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: unset;
+  }
+
+  table {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
     page-break-inside: auto;
   }
-  
-  /* Prevent page breaks inside individual items */
-  tbody tr {
+
+  tr, tbody tr {
     page-break-inside: avoid;
   }
-  
-  /* Ensure table headers repeat on each page */
   thead {
     display: table-header-group;
   }
-  
-  /* Ensure the totals section only appears on the last page */
   tfoot {
-    display: block !important; /* Override table-footer-group to prevent repeating */
+    display: table-footer-group;
     page-break-inside: avoid;
-    page-break-before: avoid;
-    position: relative;
   }
-  
-  /* Keep the thank you message, notes, and payment options with the totals */
   .thank-you-message,
-  .note-container,
-  .payment-options {
-    page-break-before: avoid;
+  .payment-options,
+  .note-section,
+  .invoice-summary-block {
     page-break-inside: avoid;
-  }
-  
-  /* Keep the payment options together */
-  .payment-options {
-    page-break-inside: avoid;
-  }
-  
-  /* Other existing print styles */
-  .invoice-container {
-    box-shadow: none;
-    margin: 0;
-    padding: 10px;
-    max-height: 29.7cm;
-    border-radius: 0;
-  }
-  
-  /* Set page size for printing */
-  @page {
-    size: A4;
-    margin: 0.5cm;
   }
 }
 
@@ -1025,7 +1031,6 @@ tfoot tr td {
     padding: 10px;
     max-height: 29.7cm;
     border-radius: 0;
-    page-break-inside: auto;
   }
   
   .invoice {

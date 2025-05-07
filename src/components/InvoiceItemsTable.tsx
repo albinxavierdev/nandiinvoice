@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export interface InvoiceItem {
@@ -73,13 +72,6 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={4} className="subtotal-label">Subtotal:</td>
-            <td className="subtotal-amount">₹ {subtotal.toFixed(2)}</td>
-            <td className="no-print"></td>
-          </tr>
-        </tfoot>
       </table>
       
       <div className="table-actions no-print">
