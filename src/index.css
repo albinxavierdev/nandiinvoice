@@ -1,0 +1,1167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide elements completely */
+.hidden {
+  display: none;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Arial', sans-serif;
+  }
+}
+
+/* Custom Invoice Styles for Tax Invoice */
+.invoice-container {
+  max-width: 210mm; /* A4 width */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #333;
+  border-radius: 8px;
+}
+
+.invoice {
+  padding: 15px;
+}
+
+/* Header Section */
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #00a0d2;
+  padding-bottom: 12px;
+}
+
+.company-details {
+  text-align: left;
+}
+
+.company-name-input {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.company-address-input {
+  font-size: 13px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 4px;
+  color: #5d6975;
+}
+
+.company-phone-input {
+  font-size: 13px;
+  border: none;
+  background: transparent;
+  width: 250px;
+  padding: 0;
+  color: #5d6975;
+}
+
+.invoice-details {
+  text-align: right;
+}
+
+.invoice-type-input {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  text-align: right;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.invoice-number-input {
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  text-align: right;
+  margin-bottom: 5px;
+  color: #5d6975;
+}
+
+.company-gst-label {
+  font-size: 12px;
+  text-align: right;
+  color: #2c3e50;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.company-gst-input {
+  font-size: 13px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  text-align: right;
+  color: #5d6975;
+}
+
+/* Customer Section */
+.customer-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid #00a0d2;
+}
+
+.bill-to-section {
+  flex: 1;
+}
+
+.bill-to-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.customer-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.customer-name-container, .customer-phone-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.customer-icon {
+  color: #00a0d2;
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+}
+
+.customer-name-input {
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2c3e50;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.customer-phone-input {
+  border: none;
+  background: transparent;
+  width: auto;
+  padding: 4px 8px;
+  font-size: 13px;
+  color: #5d6975;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.customer-name-input:focus, .customer-phone-input:focus {
+  outline: none;
+  border-bottom: 1px solid #00a0d2;
+}
+
+.customer-name-input::placeholder, .customer-phone-input::placeholder {
+  color: #b8c2cc;
+  font-style: italic;
+}
+
+.invoice-info {
+  flex: 1;
+  text-align: right;
+}
+
+.invoice-date-section, .gstn-section {
+  margin-bottom: 10px;
+}
+
+.invoice-date-label, .gstn-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.date-input, .gstn-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  text-align: right;
+  font-size: 13px;
+  color: #5d6975;
+}
+
+/* Invoice Items Table */
+.invoice-items {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: #00a0d2;
+  color: white;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+table td {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  vertical-align: top;
+  font-size: 13px;
+}
+
+/* Make Description column much wider and other columns narrower */
+table th.description-col, table td.description-cell {
+  width: 40%;
+  min-width: 200px;
+}
+table th, table td {
+  /* Reset widths for other columns to be more compact */
+  width: auto;
+}
+table th.amount-col, table td.amount {
+  min-width: 80px;
+  width: 100px;
+}
+
+/* Numeric input styles */
+.quantity-input, .rate-input, .amount-input, .sqft-input, .tax-rate-input, .discount-input, .advance-input {
+  width: 60px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: center;
+  font-size: 13px;
+  color: #5d6975;
+}
+
+.amount {
+  text-align: center;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Center align table cells */
+table td:nth-child(3),
+table td:nth-child(4),
+table td:nth-child(5),
+table td:nth-child(6),
+table th:nth-child(3),
+table th:nth-child(4),
+table th:nth-child(5),
+table th:nth-child(6) {
+  text-align: center;
+}
+
+/* Totals Section */
+tfoot tr td {
+  border: none;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.subtotal-label, .tax-rate-label, .tax-label, .total-label, 
+.discount-label, .advance-label, .subtotal-with-tax-label {
+  text-align: right;
+  font-weight: 600;
+  padding-right: 10px;
+  color: #2c3e50;
+}
+
+.subtotal-amount, .tax-amount, .total-amount, 
+.discount-value, .advance-value, .subtotal-with-tax-amount {
+  text-align: right;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.discount-row, .advance-row {
+  background-color: #f8f9fa;
+}
+
+.subtotal-with-tax-row {
+  background-color: #e8f4f8;
+}
+
+.total-row {
+  background-color: #f8f9fa;
+  border-top: 2px solid #00a0d2;
+  border-bottom: 2px solid #00a0d2;
+}
+
+.total-label, .total-amount {
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+/* Thank You Message */
+.thank-you-message {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.thank-you-input {
+  font-style: italic;
+  border: none;
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  font-size: 13px;
+  color: #5d6975;
+}
+
+/* Payment Options */
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  border: 1px solid #000;
+  padding: 15px;
+  gap: 20px;
+}
+
+.payment-content {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.payment-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.bank-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bank-detail-row {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.bank-details .label {
+  color: #2c3e50;
+  font-weight: 700;
+  min-width: 140px;
+  margin-right: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.with-gst-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+.without-gst-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 4px;
+}
+
+.bold-input {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2c3e50;
+  width: calc(100% - 140px);
+}
+
+.bold-input:focus {
+  outline: none;
+  border-bottom: 1px solid #00a0d2;
+}
+
+.qr-code {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding-top: 30px;
+}
+
+.qr-image {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border: 1px solid #e0e0e0;
+  padding: 5px;
+  background: white;
+}
+
+/* Fix rupee symbol alignment */
+.currency {
+  display: inline;
+  vertical-align: middle;
+  padding-right: 3px;
+  font-size: 13px;
+  color: #5d6975;
+}
+
+.rate-input, .amount-input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Print Button */
+.print-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.print-btn {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.print-btn:hover {
+  background-color: #1a2530;
+}
+
+.print-message {
+  margin-top: 8px;
+  color: #5d6975;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* Custom font sizes for Quill editor */
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="8px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="8px"]::before {
+  content: '8px';
+  font-size: 8px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="10px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="10px"]::before {
+  content: '10px';
+  font-size: 10px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="12px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="12px"]::before {
+  content: '12px';
+  font-size: 12px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="14px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="14px"]::before {
+  content: '14px';
+  font-size: 14px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="16px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="16px"]::before {
+  content: '16px';
+  font-size: 16px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="18px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="18px"]::before {
+  content: '18px';
+  font-size: 18px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="20px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="20px"]::before {
+  content: '20px';
+  font-size: 20px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value="24px"]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value="24px"]::before {
+  content: '24px';
+  font-size: 24px;
+}
+
+.ql-editor .ql-size-8px {
+  font-size: 8px !important;
+}
+.ql-editor .ql-size-10px {
+  font-size: 10px !important;
+}
+.ql-editor .ql-size-12px {
+  font-size: 12px !important;
+}
+.ql-editor .ql-size-14px {
+  font-size: 14px !important;
+}
+.ql-editor .ql-size-16px {
+  font-size: 16px !important;
+}
+.ql-editor .ql-size-18px {
+  font-size: 18px !important;
+}
+.ql-editor .ql-size-20px {
+  font-size: 20px !important;
+}
+.ql-editor .ql-size-24px {
+  font-size: 24px !important;
+}
+
+/* Rich Text Editor Styles */
+.rich-text-editor {
+  border: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin-bottom: 5px;
+}
+
+.rich-text-editor .ql-toolbar {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px 4px 0 0;
+  padding: 5px;
+  background-color: #f8f9fa;
+  font-size: 12px;
+}
+
+.rich-text-editor .ql-container {
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  min-height: 80px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.rich-text-editor .ql-editor {
+  padding: 8px;
+  min-height: 80px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+.rich-text-editor .ql-editor p {
+  margin-bottom: 5px;
+}
+
+/* Additional formatting styles for the Quill editor */
+.rich-text-editor .ql-editor h1 {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.rich-text-editor .ql-editor h2 {
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.rich-text-editor .ql-editor h3 {
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.rich-text-editor .ql-editor ul,
+.rich-text-editor .ql-editor ol {
+  padding-left: 24px;
+  margin: 5px 0;
+}
+
+.rich-text-editor .ql-editor li {
+  padding-left: 5px;
+  margin-bottom: 3px;
+}
+
+/* Make toolbar buttons smaller and more compact */
+.rich-text-editor .ql-toolbar button {
+  height: 24px;
+  width: 24px;
+  padding: 2px;
+}
+
+.rich-text-editor .ql-toolbar .ql-picker {
+  height: 24px;
+  line-height: 24px;
+}
+
+/* Print styling for multi-page invoices */
+@media print {
+  /* Existing print styles */
+  .no-print {
+    display: none !important;
+  }
+  
+  input, textarea {
+    border: none !important;
+    background: transparent !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Add this for multi-page support */
+  .invoice-container {
+    page-break-inside: auto;
+  }
+  
+  /* Prevent page breaks inside individual items */
+  tbody tr {
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure table headers repeat on each page */
+  thead {
+    display: table-header-group;
+  }
+  
+  /* Ensure the totals section only appears on the last page */
+  tfoot {
+    display: block !important; /* Override table-footer-group to prevent repeating */
+    page-break-inside: avoid;
+    page-break-before: avoid;
+    position: relative;
+  }
+  
+  /* Keep the thank you message, notes, and payment options with the totals */
+  .thank-you-message,
+  .note-container,
+  .payment-options {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* Keep the payment options together */
+  .payment-options {
+    page-break-inside: avoid;
+  }
+  
+  /* Other existing print styles */
+  .invoice-container {
+    box-shadow: none;
+    margin: 0;
+    padding: 10px;
+    max-height: 29.7cm;
+    border-radius: 0;
+  }
+  
+  /* Set page size for printing */
+  @page {
+    size: A4;
+    margin: 0.5cm;
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .invoice-header, .customer-section {
+    flex-direction: column;
+  }
+  
+  .invoice-details, .invoice-info {
+    text-align: left;
+    margin-top: 15px;
+  }
+  
+  .date-input, .gstn-input {
+    text-align: left;
+  }
+  
+  table {
+    font-size: 12px;
+  }
+  
+  .company-name-input {
+    font-size: 20px;
+  }
+  
+  .invoice-container {
+    margin: 10px;
+    padding: 10px;
+  }
+}
+
+.auto-calc-indicator {
+  font-size: 10px;
+  color: #00a0d2;
+  vertical-align: super;
+  margin-left: 2px;
+  cursor: help;
+}
+
+/* Discount inputs styling */
+.discount-inputs {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-input-container, .percentage-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.discount-percentage-input {
+  width: 40px;
+  border: none;
+  background: transparent;
+  text-align: right;
+  padding: 0;
+  font-size: 13px;
+  color: #5d6975;
+}
+
+.percentage-symbol {
+  font-size: 13px;
+  color: #5d6975;
+  margin-left: 2px;
+}
+
+/* Bank selection styling */
+.bank-selection-container {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bank-select-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.bank-select {
+  padding: 5px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  font-size: 14px;
+  min-width: 200px;
+}
+
+.bank-select:focus {
+  outline: none;
+  border-color: #00a0d2;
+  box-shadow: 0 0 0 2px rgba(0, 160, 210, 0.1);
+}
+
+.bank-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  text-align: left;
+}
+
+/* Note Section */
+.note-section {
+  margin: 15px 0;
+}
+
+.note-input-container {
+  margin-bottom: 15px;
+}
+
+.note-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 10px;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.note-editor {
+  border: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.note-editor .ql-toolbar {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px 4px 0 0;
+  padding: 5px;
+  background-color: #f8f9fa;
+  font-size: 12px;
+}
+
+.note-editor .ql-container {
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  min-height: 80px;
+  font-size: 13px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.note-editor .ql-editor {
+  padding: 8px;
+  min-height: 80px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+.note-container {
+  background-color: #f8f9fa;
+  padding: 12px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #00a0d2;
+  margin-bottom: 15px;
+}
+
+.note-container .note-label {
+  margin-bottom: 8px;
+  display: block;
+  color: #2c3e50;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.note-content {
+  font-size: 13px;
+  color: #5d6975;
+  line-height: 1.5;
+}
+
+.note-content p {
+  margin-bottom: 5px;
+}
+
+.note-content ul, .note-content ol {
+  padding-left: 20px;
+  margin: 5px 0;
+}
+
+/* Print styling for notes */
+@media print {
+  .note-editor .ql-toolbar {
+    display: none !important;
+  }
+  
+  .note-editor .ql-container {
+    border: none !important;
+  }
+  
+  .note-container {
+    border-left: 3px solid #00a0d2 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: #f8f9fa !important;
+  }
+  
+  /* Hide the toolbar when printing */
+  .no-print {
+    display: none !important;
+  }
+  
+  input, textarea {
+    border: none !important;
+    background: transparent !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .invoice-container {
+    box-shadow: none;
+    margin: 0;
+    padding: 10px;
+    max-height: 29.7cm;
+    border-radius: 0;
+    page-break-inside: auto;
+  }
+  
+  .invoice {
+    padding: 0;
+  }
+  
+  .ql-toolbar {
+    display: none !important;
+  }
+  
+  .ql-container {
+    border: none !important;
+  }
+  
+  .ql-editor {
+    padding: 0 !important;
+  }
+  
+  .rich-text-editor .ql-editor {
+    font-size: 13px !important;
+    color: #2c3e50 !important;
+  }
+  
+  /* Preserve formatting when printing */
+  .rich-text-editor .ql-editor h1 {
+    font-size: 20px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    color: #2c3e50 !important;
+  }
+  
+  .rich-text-editor .ql-editor h2 {
+    font-size: 18px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    color: #2c3e50 !important;
+  }
+  
+  .rich-text-editor .ql-editor h3 {
+    font-size: 16px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    color: #2c3e50 !important;
+  }
+  
+  .rich-text-editor .ql-editor ul,
+  .rich-text-editor .ql-editor ol {
+    padding-left: 24px !important;
+    margin: 5px 0 !important;
+  }
+  
+  table th {
+    background-color: #00a0d2 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .total-row {
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .discount-row, .advance-row {
+    background-color: #f8f9fa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .subtotal-with-tax-row {
+    background-color: #e8f4f8 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Multi-page print specific styles */
+  /* Make table headers appear on each printed page */
+  thead {
+    display: table-header-group;
+  }
+  
+  /* Make items not break across pages */
+  tbody tr {
+    page-break-inside: avoid;
+  }
+  
+  /* This ensures the tfoot appears only once at the end */
+  tfoot {
+    page-break-inside: avoid;
+  }
+  
+  /* Keep totals, thank you message, notes, and payment options together */
+  .thank-you-message,
+  .note-container,
+  .payment-options {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* Set page size for printing */
+  @page {
+    size: A4;
+    margin: 0.5cm;
+  }
+}
+
+/* Ensure input fields in table cells are vertically centered */
+table td input {
+  vertical-align: middle;
+}
+
+/* Invoice summary block styling */
+.invoice-summary-block {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+@media print {
+  .invoice-summary-block {
+    page-break-inside: avoid;
+    page-break-before: avoid;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Optional: summary-table styling for compactness */
+.summary-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  margin-bottom: 16px;
+}
+.summary-table td {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
